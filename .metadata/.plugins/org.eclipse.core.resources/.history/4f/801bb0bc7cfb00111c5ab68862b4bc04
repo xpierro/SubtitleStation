@@ -1,0 +1,10 @@
+package org.opticalbox.subtitlestation.model;
+
+/**
+ * Classe représentant une phrase de sous-titre dans une langue donnée.
+ * @author Pierre
+ *
+ */
+public class SubtitleSentenceModel {
+
+}

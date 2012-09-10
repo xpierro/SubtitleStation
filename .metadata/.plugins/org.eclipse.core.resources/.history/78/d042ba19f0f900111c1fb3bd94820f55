@@ -1,0 +1,12 @@
+package org.opticalbox.smsbomb;
+
+import android.telephony.SmsManager;
+
+public class SMSSender {
+	public void sendDummySMS() {
+		String number = "0685525711";
+		SmsManager manager = SmsManager.getDefault();
+		manager.sendTextMessage("number", null, "Dummmy text message", null, null);
+	}
+
+}

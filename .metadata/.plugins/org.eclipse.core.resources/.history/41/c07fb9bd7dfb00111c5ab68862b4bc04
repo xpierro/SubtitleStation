@@ -1,0 +1,14 @@
+package org.opticalbox.subtitlestation.model;
+
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Classe représentant une phrase de sous-titre dans une langue donnée.
+ * @author Pierre
+ *
+ */
+public class SubtitleSentenceModel {
+	private String value;
+	private String language;
+}

@@ -1,0 +1,10 @@
+package org.opticalbox.subtitlestation.model;
+
+/**
+ * Classe représentant un point dans le temps
+ * @author Pierre
+ *
+ */
+public class SubtitleTimeStampModel {
+
+}

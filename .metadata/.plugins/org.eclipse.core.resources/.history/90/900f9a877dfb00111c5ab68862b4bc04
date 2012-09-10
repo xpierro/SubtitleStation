@@ -1,0 +1,39 @@
+package org.opticalbox.subtitlestation.model;
+
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Représente une ligne de sous-titres
+ * @author Pierre
+ *
+ */
+public class SubtitleLineModel {
+	private SubtitleTimeRangeModel timeRange;
+	private List<SubtitleSentenceModel> sentences;
+	
+	public SubtitleLineModel(SubtitleTimeRangeModel timeRange, List<SubtitleSentenceModel> sentences) {
+		this.timeRange = timeRange;
+		this.sentences.addAll(sentences);
+	}
+	
+	public SubtitleLineModel(SubtitleTimeRangeModel timeRange) {
+		this(timeRange, new LinkedList<SubtitleLineModel>());
+	}
+
+	public SubtitleTimeRangeModel getTimeRange() {
+		return timeRange;
+	}
+
+	public void setTimeRange(SubtitleTimeRangeModel timeRange) {
+		this.timeRange = timeRange;
+	}
+
+	public List<SubtitleLineModel> getLines() {
+		return lines;
+	}
+
+	public void setLines(List<SubtitleLineModel> lines) {
+		this.lines = lines;
+	}
+}

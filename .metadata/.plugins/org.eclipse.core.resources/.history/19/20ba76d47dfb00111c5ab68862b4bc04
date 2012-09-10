@@ -1,0 +1,10 @@
+package org.opticalbox.subtitlestation.model;
+
+/**
+ * Classe principale du modèle: représente un fichier de sous-titres
+ * @author Pierre
+ *
+ */
+public class SubtitleFileModel {
+
+}

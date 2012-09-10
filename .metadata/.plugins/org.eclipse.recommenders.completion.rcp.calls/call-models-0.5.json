@@ -1,0 +1,7 @@
+{
+  "C:\\Users\\Pierre\\AppData\\Local\\Android\\android-sdk\\platforms\\android-16\\android.jar": {
+    "location": "C:\\Users\\Pierre\\AppData\\Local\\Android\\android-sdk\\platforms\\android-16\\android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\Pierre\\AppData\\Local\\Android\\android-sdk\\platforms\\android-16\\android.jar\u0027. Neither fingerprint \u00273dcce76e951c5ffaf5fc1e15001bbf62b54e9857\u0027 nor symbolic name \u0027android\u0027 are known."
+  }
+}

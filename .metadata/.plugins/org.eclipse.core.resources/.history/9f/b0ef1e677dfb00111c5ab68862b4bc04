@@ -1,0 +1,10 @@
+package org.opticalbox.subtitlestation.model;
+
+/**
+ * Représente une ligne de sous-titres
+ * @author Pierre
+ *
+ */
+public class SubtitleLineModel {
+
+}
