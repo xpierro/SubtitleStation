@@ -1,8 +1,0 @@
-package org.opticalbox.smsbomb;
-
-public class SMSSender {
-	public void sendDummySMS() {
-		String number = "0685525711";
-	}
-
-}

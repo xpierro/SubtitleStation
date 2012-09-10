@@ -1,8 +1,0 @@
-<resources>
-
-    <string name="app_name">SMSBomb</string>
-    <string name="hello_world">Envoyer des sms!</string>
-    <string name="menu_settings">Paramètres</string>
-    <string name="title_activity_main">SMSBomb</string>
-
-</resources>
