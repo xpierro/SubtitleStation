@@ -70,7 +70,7 @@
           <tags>persp.actionSet:adt.actionSet.refactorings</tags>
           <tags>persp.actionSet:adt.actionSet.avdManager</tags>
           <tags>persp.actionSet:adt.actionSet.lint</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5gfm8EeGU95AnnK7CXA" selectedElement="_zaX5gvm8EeGU95AnnK7CXA" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5gfm8EeGU95AnnK7CXA" selectedElement="_zaX5jfm8EeGU95AnnK7CXA" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5gvm8EeGU95AnnK7CXA" containerData="2500" selectedElement="_zaX5g_m8EeGU95AnnK7CXA">
               <children xsi:type="basic:PartStack" xmi:id="_zaX5g_m8EeGU95AnnK7CXA" elementId="left" containerData="6000" selectedElement="_zaX5hPm8EeGU95AnnK7CXA">
                 <tags>newtablook</tags>
@@ -88,7 +88,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_zaX5jPm8EeGU95AnnK7CXA" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_zaWEUPm8EeGU95AnnK7CXA"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5jfm8EeGU95AnnK7CXA" containerData="7500" selectedElement="_zaX5l_m8EeGU95AnnK7CXA">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5jfm8EeGU95AnnK7CXA" containerData="7500" selectedElement="_zaX5jvm8EeGU95AnnK7CXA">
               <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5jvm8EeGU95AnnK7CXA" containerData="5641" selectedElement="_zaX5j_m8EeGU95AnnK7CXA" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_zaX5j_m8EeGU95AnnK7CXA" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_zaCiUPm8EeGU95AnnK7CXA"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_zaX5kPm8EeGU95AnnK7CXA" containerData="2500" selectedElement="_zaX5k_m8EeGU95AnnK7CXA">
@@ -207,7 +207,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_zaCiUPm8EeGU95AnnK7CXA" elementId="org.eclipse.ui.editorss" selectedElement="_zaCiUfm8EeGU95AnnK7CXA">
-      <children xsi:type="basic:PartStack" xmi:id="_zaCiUfm8EeGU95AnnK7CXA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_7txGkPt-EeG7OIB3Ise1Qw">
+      <children xsi:type="basic:PartStack" xmi:id="_zaCiUfm8EeGU95AnnK7CXA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_QhmJkPt5EeG7OIB3Ise1Qw">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -257,7 +257,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_QhmJkPt5EeG7OIB3Ise1Qw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="SubtitleTimeRangeModel.java" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/obj16/jcu_obj.gif" tooltip="SubtitleStation/src/org/opticalbox/subtitlestation/model/SubtitleTimeRangeModel.java" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SubtitleStation/src/org/opticalbox/subtitlestation/model/SubtitleTimeRangeModel.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;79&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SubtitleStation/src/org/opticalbox/subtitlestation/model/SubtitleTimeRangeModel.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;686&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
         </children>
@@ -296,7 +296,7 @@
       <tags>categoryTag:General</tags>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_zaP9s_m8EeGU95AnnK7CXA" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/problems_view.gif" tooltip="0 errors, 3 warnings, 0 others" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (3 items)&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Errors&quot;/>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_ziSfYPm8EeGU95AnnK7CXA" elementId="org.eclipse.ui.views.ProblemView">
