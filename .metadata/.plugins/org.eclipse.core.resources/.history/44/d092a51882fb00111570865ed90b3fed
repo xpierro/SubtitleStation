@@ -1,7 +1,7 @@
 package org.opticalbox.subtitlestation.model;
 
 /**
- * Classe représentant un intervalle de temps.
+ * Classe représentant un interval de temps.
  * @author Pierre
  *
  */
