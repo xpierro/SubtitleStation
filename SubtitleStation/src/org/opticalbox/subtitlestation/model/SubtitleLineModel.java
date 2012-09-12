@@ -21,6 +21,10 @@ public class SubtitleLineModel {
 		this(timeRange, new LinkedList<SubtitleSentenceModel>());
 	}
 
+	public SubtitleLineModel() {
+		this(new SubtitleTimeRangeModel(new SubtitleTimeStampModel(), new SubtitleTimeStampModel()));
+	}
+	
 	public SubtitleTimeRangeModel getTimeRange() {
 		return timeRange;
 	}
@@ -33,7 +37,11 @@ public class SubtitleLineModel {
 		return sentences;
 	}
 
-	public void setLines(List<SubtitleSentenceModel> sentences) {
+	public void setSentences(List<SubtitleSentenceModel> sentences) {
 		this.sentences = sentences;
+	}
+	
+	public void addSentences(SubtitleSentenceModel sentence) {
+		sentences.add(sentence);
 	}
 }

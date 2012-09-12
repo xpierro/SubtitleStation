@@ -18,6 +18,10 @@ public class SubtitleTimeStampModel {
     	this.miliSeconds = miliSeconds;
     }
     
+    public SubtitleTimeStampModel() {
+    	this(0, 0, 0, 0);
+    }
+    
     public int getHours() {
 		return hours;
 	}
