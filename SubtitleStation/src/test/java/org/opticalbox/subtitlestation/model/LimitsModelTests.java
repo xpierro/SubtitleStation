@@ -33,7 +33,6 @@ public class LimitsModelTests {
 		SubtitleTimeStampModel t4 = new SubtitleTimeStampModel(5, 57, 57, 958);
 		SubtitleTimeStampModel t5 = new SubtitleTimeStampModel(18, 10, 5, 584);
 		Assert.assertEquals(new SubtitleTimeStampModel(24, 8, 3, 542), t4.add(t5));
-		
 	}
 	
 }
