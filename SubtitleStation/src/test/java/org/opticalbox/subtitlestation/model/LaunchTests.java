@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses(value={ModelTests.class})
+@SuiteClasses(value={UseCasesModelTests.class, LimitsModelTests.class})
 public class LaunchTests {
 
 }
