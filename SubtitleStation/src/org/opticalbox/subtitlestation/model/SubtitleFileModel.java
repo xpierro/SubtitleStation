@@ -63,7 +63,7 @@ public class SubtitleFileModel {
 		SubtitleLineModel subtitleLineModel = new SubtitleLineModel();
 		if (lines.size() > 0) {
 			SubtitleLineModel lastLineModel = getLastLine();
-			subtitleLineModel.setTimeRange(new SubtitleTimeRangeModel(lastLineModel.getTimeRange().getEnd(), lastLineModel.getTimeRange().getEnd()));
+			subtitleLineModel.setTimeRange(lastLineModel.getEnd(), lastLineModel.getEnd());
 		}
 		return addLine(subtitleLineModel);
 	}
@@ -101,8 +101,8 @@ public class SubtitleFileModel {
 	public boolean validate() {
 		SubtitleLineModel previous = new SubtitleLineModel();
 		for (SubtitleLineModel line : lines) {
-			if (!(line.getTimeRange().getBegin().compareTo(previous.getTimeRange().getEnd()) >= 0) 
-					|| !(line.getTimeRange().getBegin().compareTo(line.getTimeRange().getEnd()) <= 0)) {
+			if (!(line.getBegin().compareTo(previous.getEnd()) >= 0) 
+					|| !(line.getBegin().compareTo(line.getEnd()) <= 0)) {
 					return false;	
 				}
 		}

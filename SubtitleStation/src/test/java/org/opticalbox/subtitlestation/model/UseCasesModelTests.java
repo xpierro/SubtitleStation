@@ -26,7 +26,7 @@ public class UseCasesModelTests {
 		SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
 		subtitleFileModel.addLine();
 		Assert.assertEquals(1, subtitleFileModel.getLineCount());
-		Assert.assertEquals(subtitleFileModel.getLastLine().getTimeRange().getBegin(), subtitleFileModel.getLastLine().getTimeRange().getEnd());
+		Assert.assertEquals(subtitleFileModel.getLastLine().getBegin(), subtitleFileModel.getLastLine().getEnd());
 	}
 	
 	/**
@@ -35,12 +35,12 @@ public class UseCasesModelTests {
 	@Test
 	public void appendNewSubtitleLine() {
 		SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
-		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeRangeModel(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521)));
+		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
 		subtitleFileModel.addLine(); // Automatiquement placé au timerange de la fin du précédent
 		
 		Assert.assertEquals(2, subtitleFileModel.getLineCount());
-		Assert.assertEquals(subtitleFileModel.getLineAt(0).getTimeRange().getEnd() ,
-				 			subtitleFileModel.getLineAt(1).getTimeRange().getBegin());
+		Assert.assertEquals(subtitleFileModel.getLineAt(0).getEnd() ,
+				 			subtitleFileModel.getLineAt(1).getBegin());
 		Assert.assertTrue(subtitleFileModel.validate());
 	}
 	
@@ -50,7 +50,7 @@ public class UseCasesModelTests {
 	@Test
 	public void editSubtitleSentence() {
 		SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
-		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeRangeModel(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521)));
+		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
 		subtitleFileModel.addLine(); // Automatiquement placé au timerange de la fin du précédent
 		subtitleFileModel.getLineAt(1).editSentence("fr", "hello");
 		Assert.assertEquals("hello", subtitleFileModel.getLineAt(1).getSentenceValue("fr"));
@@ -61,7 +61,11 @@ public class UseCasesModelTests {
 	 */
 	@Test
 	public void changeBeginEndTimeRange() {
-		
+		SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
+		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
+		subtitleFileModel.addLine(); // Automatiquement placé au timerange de la fin du précédent
+		subtitleFileModel.getLineAt(1).editSentence("fr", "hello");
+		//subtitleFileModel.getLineAt(1).setTimeRange()
 	}
 
 }

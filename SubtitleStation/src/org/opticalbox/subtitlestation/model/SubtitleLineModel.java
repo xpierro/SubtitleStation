@@ -9,7 +9,8 @@ import java.util.Map;
  *
  */
 public class SubtitleLineModel {
-	private SubtitleTimeRangeModel timeRange;
+	private SubtitleTimeStampModel begin;
+	private SubtitleTimeStampModel end;
 	private Map<String, String> sentencesMap;
 	
 	/**
@@ -17,8 +18,8 @@ public class SubtitleLineModel {
 	 * @param timeRange Le time range à appliquer
 	 * @param sentences Les phrases de la ligne
 	 */
-	public SubtitleLineModel(SubtitleTimeRangeModel timeRange, Map<String, String> sentences) {
-		if (timeRange == null) {
+	public SubtitleLineModel(SubtitleTimeStampModel begin, SubtitleTimeStampModel end, Map<String, String> sentences) {
+		if (begin == null || end == null) {
 			throw new NullPointerException("Le time range est nul");
 		}
 		if (sentences == null) {
@@ -26,38 +27,49 @@ public class SubtitleLineModel {
 		}
 		
 		this.sentencesMap = sentences;
-		this.timeRange = timeRange;
+		this.end = end;
+		this.begin = begin;
 	}
 	
 	/**
 	 * Crée une ligne vierge (time range spécifié, aucune phrase)
 	 * @param timeRange Le time range à appliquer
 	 */
-	public SubtitleLineModel(SubtitleTimeRangeModel timeRange) {
-		this(timeRange, new HashMap<String, String>());
+	public SubtitleLineModel(SubtitleTimeStampModel begin, SubtitleTimeStampModel end) {
+		this(begin, end, new HashMap<String, String>());
 	}
 
 	/**
 	 * Crée une nouvelle ligne vierge (time stamp à 0, aucune phrase)
 	 */
 	public SubtitleLineModel() {
-		this(new SubtitleTimeRangeModel(new SubtitleTimeStampModel(), new SubtitleTimeStampModel()));
+		this(new SubtitleTimeStampModel(), new SubtitleTimeStampModel());
 	}
 	
 	/**
-	 * Renvoie le time range de la ligne
-	 * @return Le time range appliqué à la ligne
+	 * Renvoie le time range inférieur de la ligne
+	 * @return Le time range inférieur appliqué à la ligne
 	 */
-	public SubtitleTimeRangeModel getTimeRange() {
-		return timeRange;
+	public SubtitleTimeStampModel getBegin() {
+		return begin;
+	}
+	
+
+	/**
+	 * Renvoie le time range supérieur de la ligne
+	 * @return Le time range supérieur appliqué à la ligne
+	 */
+	public SubtitleTimeStampModel getEnd() {
+		return end;
 	}
 
 	/**
 	 * Spécifie le time range de la ligne
 	 * @param timeRange Le time range appliqué à la ligne
 	 */
-	public void setTimeRange(SubtitleTimeRangeModel timeRange) {
-		this.timeRange = timeRange;
+	public void setTimeRange(SubtitleTimeStampModel begin, SubtitleTimeStampModel end) {
+		this.begin = begin;
+		this.end = end;
 	}
 
 	/**

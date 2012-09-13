@@ -1,16 +1,23 @@
 package org.opticalbox.subtitlestation.model;
 
 /**
- * Classe représentant un point dans le temps
+ * Classe représentant un point dans le temps - Non mutable
  * @author Pierre
  *
  */
-public class SubtitleTimeStampModel implements Comparable<SubtitleTimeStampModel>, Cloneable {
-    private int hours;
-    private int minutes;
-    private int seconds;
-    private int miliSeconds;
+public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStampModel>, Cloneable {
+    private final int hours;
+    private final int minutes;
+    private final int seconds;
+    private final int miliSeconds;
     
+    /**
+     * Créé un timestamp
+     * @param hours Le nombre d'heures
+     * @param minutes Le nombre de minutes
+     * @param seconds Le nombre de secondes
+     * @param miliSeconds Le nombre de milisecondes
+     */
     public SubtitleTimeStampModel(int hours, int minutes, int seconds, int miliSeconds) {
     	this.hours = hours;
     	this.minutes = minutes;
@@ -18,6 +25,9 @@ public class SubtitleTimeStampModel implements Comparable<SubtitleTimeStampModel
     	this.miliSeconds = miliSeconds;
     }
     
+    /**
+     * Crée un timestamp à 0
+     */
     public SubtitleTimeStampModel() {
     	this(0, 0, 0, 0);
     }
@@ -25,27 +35,43 @@ public class SubtitleTimeStampModel implements Comparable<SubtitleTimeStampModel
     public int getHours() {
 		return hours;
 	}
-	public void setHours(int hours) {
-		this.hours = hours;
-	}
+	
 	public int getMinutes() {
 		return minutes;
 	}
-	public void setMinutes(int minutes) {
-		this.minutes = minutes;
-	}
+	
 	public int getSeconds() {
 		return seconds;
 	}
-	public void setSeconds(int seconds) {
-		this.seconds = seconds;
-	}
+	
 	public int getMiliSeconds() {
 		return miliSeconds;
 	}
-	public void setMiliSeconds(int miliSeconds) {
-		this.miliSeconds = miliSeconds;
+	
+	/**
+	 * Additionne le timestamp courant avec un autre
+	 * @param subtitleTimeStampModel Le timestamp avec lequel additionner le timestamp courant
+	 * @return Un nouveau timestamp addition
+	 */
+	public SubtitleTimeStampModel add(SubtitleTimeStampModel subtitleTimeStampModel) {
+		int mili = miliSeconds + subtitleTimeStampModel.miliSeconds;
+		int miliInt = mili / 1000;
+		int miliDec = mili - 1000 * miliInt;
+		
+		int sec = seconds + subtitleTimeStampModel.seconds + miliInt;
+		int secInt = sec / 60;
+		int secDec = sec - 60 * secInt; 
+		
+		int min = minutes + subtitleTimeStampModel.minutes + secInt; 
+		int minInt = min / 60;
+		int minDec = min - 60 * minInt;
+		
+		int h = hours + subtitleTimeStampModel.hours + minInt;
+		
+		return new SubtitleTimeStampModel(h, minDec, secDec, miliDec);
+		
 	}
+	
 
 	@Override
 	public int compareTo(SubtitleTimeStampModel another) {
