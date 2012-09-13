@@ -13,6 +13,7 @@ public class SubtitleLineModel {
 	private List<SubtitleSentenceModel> sentences;
 	
 	public SubtitleLineModel(SubtitleTimeRangeModel timeRange, List<SubtitleSentenceModel> sentences) {
+		this.sentences = new LinkedList<SubtitleSentenceModel>();
 		this.timeRange = timeRange;
 		this.sentences.addAll(sentences);
 	}

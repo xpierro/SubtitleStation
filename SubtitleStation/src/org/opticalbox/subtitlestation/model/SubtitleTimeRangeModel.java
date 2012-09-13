@@ -10,8 +10,8 @@ public class SubtitleTimeRangeModel {
 	private SubtitleTimeStampModel end;
 	
 	public SubtitleTimeRangeModel(SubtitleTimeStampModel begin, SubtitleTimeStampModel end) {
-		this.begin = begin;
-		this.end = end;
+		this.begin = (SubtitleTimeStampModel) begin.clone();
+		this.end = (SubtitleTimeStampModel) end.clone();
 	}
 
 	public SubtitleTimeStampModel getBegin() {

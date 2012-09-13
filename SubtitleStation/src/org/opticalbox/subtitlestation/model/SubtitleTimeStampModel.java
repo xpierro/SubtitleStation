@@ -5,7 +5,7 @@ package org.opticalbox.subtitlestation.model;
  * @author Pierre
  *
  */
-public class SubtitleTimeStampModel {
+public class SubtitleTimeStampModel implements Comparable<SubtitleTimeStampModel>, Cloneable {
     private int hours;
     private int minutes;
     private int seconds;
@@ -45,6 +45,46 @@ public class SubtitleTimeStampModel {
 	}
 	public void setMiliSeconds(int miliSeconds) {
 		this.miliSeconds = miliSeconds;
+	}
+
+	@Override
+	public int compareTo(SubtitleTimeStampModel another) {
+		if (another == null) {
+			throw new NullPointerException("the Time Stamp is null");
+		}
+		
+		int hoursComparison = Integer.valueOf(hours).compareTo(another.hours);
+		if(hours > 0) {
+			return hoursComparison;
+		} else {
+			int minutesComparison = Integer.valueOf(minutes).compareTo(another.minutes);
+			if (minutesComparison > 0){
+				return minutesComparison;
+			} else {
+				int secondsComparison = Integer.valueOf(seconds).compareTo(another.seconds);
+				if (secondsComparison > 0) {
+					return secondsComparison;
+				} else {
+					return Integer.valueOf(miliSeconds).compareTo(another.miliSeconds);
+				}
+			}
+		}		
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return (o != null && o instanceof SubtitleTimeStampModel 
+				&& compareTo((SubtitleTimeStampModel) o) == 0);
+	}
+	
+	@Override
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
     
     

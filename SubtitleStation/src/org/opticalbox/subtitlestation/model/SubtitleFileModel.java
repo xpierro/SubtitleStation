@@ -16,6 +16,7 @@ public class SubtitleFileModel {
 	 * @param lines Série de lignes à ajouter
 	 */
 	public SubtitleFileModel(List<SubtitleLineModel> lines) {
+		this.lines = new LinkedList<SubtitleLineModel>();
 		this.lines.addAll(lines);
 	}
 
@@ -82,5 +83,30 @@ public class SubtitleFileModel {
 	 */
 	public SubtitleLineModel getLineAt(int index) {
 		return lines.get(index);
+	}
+	
+	/**
+	 * Renvoie le nombre de lignes du fichier
+	 * @return Le nombre de lignes du fichier
+	 */
+	public int getLineCount() {
+		return lines.size();
+	}
+	
+	/**
+	 * Valide que le fichier de sous-titre soit bien séquentiellement constitué
+	 * @return true si chaque ligne est à un range inférieur à la ligne suivant, false sinon
+	 * TODO: évaluer la nécessité d'une telle validation: on pourrait réordonner les lignes
+	 */
+	public boolean validate() {
+		SubtitleLineModel previous = new SubtitleLineModel();
+		for (SubtitleLineModel line : lines) {
+			if (!(line.getTimeRange().getBegin().compareTo(previous.getTimeRange().getEnd()) >= 0) 
+					|| !(line.getTimeRange().getBegin().compareTo(line.getTimeRange().getEnd()) <= 0)) {
+					return false;	
+				}
+		}
+		return true;
+		
 	}
 }
