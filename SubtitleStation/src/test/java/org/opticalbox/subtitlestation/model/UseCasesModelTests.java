@@ -65,7 +65,22 @@ public class UseCasesModelTests {
 		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
 		subtitleFileModel.addLine(); // Automatiquement placé au timerange de la fin du précédent
 		subtitleFileModel.getLineAt(1).editSentence("fr", "hello");
-		//subtitleFileModel.getLineAt(1).setTimeRange()
+		subtitleFileModel.getLineAt(1).setEnd(new SubtitleTimeStampModel(0, 1, 26, 254));
+		Assert.assertTrue(subtitleFileModel.validate());
+		Assert.assertEquals(new SubtitleTimeStampModel(0, 1, 26, 254), subtitleFileModel.getLineAt(1).getEnd());
+	}
+	
+	/**
+	 * Répare un fichier désordonné
+	 */
+	@Test
+	public void repareFile() {
+		SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
+		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 1, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
+		subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 0, 25, 521));
+		Assert.assertFalse(subtitleFileModel.validate());
+		subtitleFileModel.repare();
+		Assert.assertTrue(subtitleFileModel.validate());
 	}
 
 }

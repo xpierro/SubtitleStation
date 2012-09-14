@@ -3,12 +3,14 @@ package org.opticalbox.subtitlestation.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.opticalbox.subtitlestation.exceptions.IncoherentLineTimeStamps;
+
 /**
  * Représente une ligne de sous-titres
  * @author Pierre
  *
  */
-public class SubtitleLineModel {
+public class SubtitleLineModel implements Comparable<SubtitleLineModel>{
 	private SubtitleTimeStampModel begin;
 	private SubtitleTimeStampModel end;
 	private Map<String, String> sentencesMap;
@@ -24,6 +26,9 @@ public class SubtitleLineModel {
 		}
 		if (sentences == null) {
 			throw new NullPointerException("La map de phrases est nulles");
+		}
+		if (begin.compareTo(end) > 0) {
+			throw new IncoherentLineTimeStamps(begin + ">" + end);
 		}
 		
 		this.sentencesMap = sentences;
@@ -71,6 +76,22 @@ public class SubtitleLineModel {
 		this.begin = begin;
 		this.end = end;
 	}
+	
+	/**
+	 * Spécifie le début de la ligne
+	 * @param begin Le timestamp du début
+	 */
+	public void setBegin(SubtitleTimeStampModel begin) {
+		this.begin = begin;
+	}
+	
+	/**
+	 * Spécifie la fin de la ligne
+	 * @param end Le timestamp de fin
+	 */
+	public void setEnd(SubtitleTimeStampModel end) {
+		this.end = end;
+	}
 
 	/**
 	 * Donne accès à toutes les phrases de la ligne
@@ -113,5 +134,43 @@ public class SubtitleLineModel {
 	 */
 	public String getSentenceValue(String language) {
 		return sentencesMap.get(language);
+	}
+
+	/**
+	 * Concatène tous les cas possibles de croisement et classiques
+	 *  1 [------>]  | [----->]
+	 *  2   [--->]   |    [----->]
+	 *    1 -> 2     |      1 -> 2
+	 */
+	@Override
+	public int compareTo(SubtitleLineModel another) {
+		if (another == null) {
+			throw new NullPointerException("Can't compare Line with a null value");
+		}
+		
+		if (begin.compareTo(end) > 0) {
+			throw new IncoherentLineTimeStamps(begin + "<" + end);
+		} else if (another.begin.compareTo(another.end) > 0) {
+			throw new IncoherentLineTimeStamps(another.begin + "<" + another.end);
+		}
+		
+		if (begin.compareTo(another.begin) < 0 ) {
+			return -1;
+		} else if (another.begin.compareTo(begin) < 0) {
+			return 1;
+		} else {
+			return 0;
+		}		
+	}
+	
+	
+	
+	/**
+	 * Donne la durée de la ligne en millisecondes
+	 * @return La durée en millisecondes de la ligne
+	 * TODO: faire 
+	 */
+	public long getDuration() {
+		return end.getMiliSecondStamp() - begin.getMiliSecondStamp();
 	}
 }

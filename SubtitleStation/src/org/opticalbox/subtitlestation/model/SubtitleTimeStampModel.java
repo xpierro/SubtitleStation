@@ -19,6 +19,9 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
      * @param miliSeconds Le nombre de milisecondes
      */
     public SubtitleTimeStampModel(int hours, int minutes, int seconds, int miliSeconds) {
+    	if (minutes > 59 || seconds > 59 || miliSeconds > 1000) {
+    		throw new IllegalArgumentException(hours + ":" + minutes + ":" + seconds + "." + miliSeconds + " is not a valid time stamp");
+    	}
     	this.hours = hours;
     	this.minutes = minutes;
     	this.seconds = seconds;
@@ -72,6 +75,13 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 		
 	}
 	
+	public long getMiliSecondStamp() {
+		return miliSeconds 
+			   + seconds * 1000 
+	           + minutes * 60 * 1000 
+	           + hours * 3600 * 1000; 
+	}
+	
 
 	@Override
 	public int compareTo(SubtitleTimeStampModel another) {
@@ -80,21 +90,14 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 		}
 		
 		int hoursComparison = Integer.valueOf(hours).compareTo(another.hours);
-		if(hours > 0) {
-			return hoursComparison;
-		} else {
-			int minutesComparison = Integer.valueOf(minutes).compareTo(another.minutes);
-			if (minutesComparison > 0){
-				return minutesComparison;
-			} else {
-				int secondsComparison = Integer.valueOf(seconds).compareTo(another.seconds);
-				if (secondsComparison > 0) {
-					return secondsComparison;
-				} else {
-					return Integer.valueOf(miliSeconds).compareTo(another.miliSeconds);
-				}
-			}
-		}		
+		int minutesComparison = Integer.valueOf(minutes).compareTo(another.minutes);
+		int secondsComparison = Integer.valueOf(seconds).compareTo(another.seconds);
+		int miliSecondsComparison = Integer.valueOf(miliSeconds).compareTo(another.miliSeconds);
+		
+		return hoursComparison != 0 ? hoursComparison : 
+			   minutesComparison != 0 ? minutesComparison : 
+			   secondsComparison != 0 ? secondsComparison : 
+			   miliSecondsComparison;
 	}
 	
 	@Override
@@ -113,5 +116,9 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 		return null;
 	}
     
+	@Override
+	public String toString() {
+		return hours + ":" + minutes + ":" + seconds + "." + miliSeconds;
+	}
     
 }

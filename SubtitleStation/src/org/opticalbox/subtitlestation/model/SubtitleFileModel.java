@@ -2,6 +2,10 @@ package org.opticalbox.subtitlestation.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import org.opticalbox.subtitlestation.exceptions.IncoherentLineTimeStamps;
 
 /**
  * Classe principale du modèle: représente un fichier de sous-titres
@@ -101,12 +105,27 @@ public class SubtitleFileModel {
 	public boolean validate() {
 		SubtitleLineModel previous = new SubtitleLineModel();
 		for (SubtitleLineModel line : lines) {
-			if (!(line.getBegin().compareTo(previous.getEnd()) >= 0) 
-					|| !(line.getBegin().compareTo(line.getEnd()) <= 0)) {
+			try {
+				if (previous.compareTo(line) > 0) {
 					return false;	
 				}
+			} catch (IncoherentLineTimeStamps e) {
+				return false;
+			}
+			previous = line;
 		}
 		return true;
-		
+	}
+	
+	/**
+	 * Réordonne toutes les lignes du fichier pour le rentre à nouveau
+	 * valide
+	 * @return true si la validation fonction, false sinon
+	 */
+	public boolean repare() {
+		Set<SubtitleLineModel> sortedLines = new TreeSet<SubtitleLineModel>(lines);
+		lines.clear();
+		lines.addAll(sortedLines);
+		return validate();
 	}
 }
