@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.opticalbox</groupId>
     <artifactId>SubtitleStation</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <packaging>apk</packaging>
     <name>SubtitleStation</name>
 
     <properties>
-        <platform.version> 2.3.3 </platform.version>
+        <platform.version>4.1.1.4</platform.version>
     </properties>
 
     <dependencies>
@@ -20,10 +20,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.8.1</version>
-</dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>
@@ -31,7 +37,7 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>3.3.2</version>
                 <configuration>
                     <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
                     <assetsDirectory>${project.basedir}/assets</assetsDirectory>
@@ -40,7 +46,7 @@
                     <sdk>
                         <platform>16</platform>
                     </sdk>
-                                        <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
                 <extensions>true</extensions>
             </plugin>
