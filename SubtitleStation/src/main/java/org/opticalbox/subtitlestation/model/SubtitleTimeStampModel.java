@@ -72,7 +72,20 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 		int h = hours + subtitleTimeStampModel.hours + minInt;
 		
 		return new SubtitleTimeStampModel(h, minDec, secDec, miliDec);
-		
+	}
+	
+	// TODO: fonction de conversion mili->time stamp (utile pour décalage de sous-titre)
+	private SubtitleTimeStampModel fromMiliSeconds(long duration) {
+		return null;
+	}
+	
+	/**
+	 * Ajoute un nombre spécifique de milisecondes
+	 * @param duration
+	 * @return Le nouveau time stamp résultat de l'addition de la durée fournie
+	 */
+	public SubtitleTimeStampModel add(long duration) {
+		return null;
 	}
 	
 	public long getMiliSecondStamp() {

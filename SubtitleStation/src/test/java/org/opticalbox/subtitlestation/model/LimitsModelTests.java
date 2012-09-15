@@ -99,5 +99,19 @@ public class LimitsModelTests {
 	 public void subtitleLineModelConstructor1() {
 		 new SubtitleLineModel(new SubtitleTimeStampModel(1, 0, 0, 0), new SubtitleTimeStampModel(0, 0, 0, 255));
 	 }
+	 
+	 /**
+	  * Modification incohérente de fichier
+	  */
+	 @Test
+	 public void subtitleFileModelEdition1() {
+		 SubtitleFileModel subtitleFileModel = new SubtitleFileModel();
+			subtitleFileModel.addLine().setTimeRange(new SubtitleTimeStampModel(0, 0, 0, 0 ),  new SubtitleTimeStampModel(0, 1, 25, 521));
+			subtitleFileModel.addLine(); // Automatiquement placé au timerange de la fin du précédent
+			subtitleFileModel.getLineAt(1).editSentence("fr", "hello");
+			subtitleFileModel.getLineAt(1).setEnd(new SubtitleTimeStampModel(0, 1, 26, 254));
+			subtitleFileModel.getLineAt(0).setBegin(subtitleFileModel.getLineAt(0).getBegin().add(155000));
+
+	 }
 	
 }

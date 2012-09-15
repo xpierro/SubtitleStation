@@ -10,6 +10,7 @@
 
     <properties>
         <platform.version>4.1.1.4</platform.version>
+        <android.platform>16</android.platform>
     </properties>
 
     <dependencies>
@@ -44,7 +45,7 @@
                     <resourceDirectory>${project.basedir}/res</resourceDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
                     <sdk>
-                        <platform>16</platform>
+                        <platform>${android.platform}</platform>
                     </sdk>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
