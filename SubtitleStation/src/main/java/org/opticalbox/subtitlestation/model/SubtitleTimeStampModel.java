@@ -76,7 +76,7 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 	
 	// TODO: fonction de conversion mili->time stamp (utile pour décalage de sous-titre)
 	private SubtitleTimeStampModel fromMiliSeconds(long duration) {
-		return null;
+		return new SubtitleTimeStampModel();
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public final class SubtitleTimeStampModel implements Comparable<SubtitleTimeStam
 	 * @return Le nouveau time stamp résultat de l'addition de la durée fournie
 	 */
 	public SubtitleTimeStampModel add(long duration) {
-		return null;
+		return fromMiliSeconds(getMiliSecondStamp() + duration);
 	}
 	
 	public long getMiliSecondStamp() {
